@@ -16,7 +16,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="h-screen w-[80px] bg-[#6E00FF] flex flex-col rounded-3xl items-center py-4">
+    <div className="h-screen w-[60px] mr-7  bg-[#6E00FF] flex flex-col rounded-3xl items-center py-4">
       <img
         src="https://via.placeholder.com/40"
         alt="Profile"
