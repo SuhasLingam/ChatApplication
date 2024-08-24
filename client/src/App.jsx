@@ -4,7 +4,7 @@ import ChatsList from "./components/chatsList";
 
 const App = () => {
   return (
-    <div className="bg-[#EFF6FC] flex flex-row">
+    <div className="bg-[#EFF6FC] justify-start items-center pl-4 h-screen w-screen flex flex-row">
       <Navbar />
       <ChatsList />
     </div>

@@ -16,13 +16,13 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="h-screen w-[60px] mr-7  bg-[#6E00FF] flex flex-col rounded-3xl items-center py-4">
+    <div className=" relative w-[60px] h-[38rem] mr-7 bg-[#6E00FF] flex flex-col rounded-3xl shadow-md shadow-[#79C5EF] items-center py-4">
       <img
         src="https://via.placeholder.com/40"
         alt="Profile"
         className="mb-[4rem] mt-2 rounded-full"
       />
-      <ul className="flex flex-col items-center w-full space-y-4">
+      <ul className=" flex flex-col items-center w-full space-y-4">
         {navItems.map((item) => (
           <li
             key={item.id}
@@ -36,7 +36,7 @@ const Navbar = () => {
             {item.icon}
           </li>
         ))}
-        <li className="bottom-10 absolute text-white">
+        <li className="bottom-[80px] absolute text-white">
           <FaDoorOpen size={24} />
         </li>
       </ul>
