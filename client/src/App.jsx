@@ -1,13 +1,11 @@
-import React from "react";
-import Navbar from "./components/navbar";
-import ChatsList from "./components/chatsList";
+import React, { useState } from "react";
+import MainPage from "./components/mainPage";
 
 const App = () => {
   return (
-    <div className="bg-[#EFF6FC] justify-start items-center pl-4 h-screen w-screen flex flex-row">
-      <Navbar />
-      <ChatsList />
-    </div>
+    <>
+      <MainPage />
+    </>
   );
 };
 

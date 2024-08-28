@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import { FaHome, FaBell, FaCog, FaComments, FaDoorOpen } from "react-icons/fa";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
-const Navbar = () => {
+const Navbar = ({ setLoggedIn }) => {
   const [activeItem, setActiveItem] = useState("");
 
   const handleItemClick = (item) => {
     setActiveItem(item);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setLoggedIn(false); // Update the state to reflect that the user has logged out
+      localStorage.removeItem("loggedIn"); // Clear the logged-in status from localStorage
+      console.log("User logged out successfully");
+    } catch (error) {
+      console.error("Error logging out: ", error);
+    }
   };
 
   const navItems = [
@@ -16,13 +29,13 @@ const Navbar = () => {
   ];
 
   return (
-    <div className=" relative w-[60px] h-[38rem] mr-7 bg-[#6E00FF] flex flex-col rounded-3xl shadow-md shadow-[#79C5EF] items-center py-4">
+    <div className="relative w-[60px] h-[38rem] mr-7 bg-[#6E00FF] flex flex-col rounded-3xl shadow-md shadow-[#79C5EF] items-center py-4">
       <img
         src="https://via.placeholder.com/40"
         alt="Profile"
         className="mb-[4rem] mt-2 rounded-full"
       />
-      <ul className=" flex flex-col items-center w-full space-y-4">
+      <ul className="flex flex-col items-center w-full space-y-4">
         {navItems.map((item) => (
           <li
             key={item.id}
@@ -36,7 +49,10 @@ const Navbar = () => {
             {item.icon}
           </li>
         ))}
-        <li className="bottom-[80px] absolute text-white">
+        <li
+          onClick={handleLogout}
+          className="bottom-[80px] absolute text-white cursor-pointer"
+        >
           <FaDoorOpen size={24} />
         </li>
       </ul>
